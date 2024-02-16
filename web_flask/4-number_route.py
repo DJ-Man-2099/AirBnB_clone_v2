@@ -25,7 +25,7 @@ def hello_world_c_text(text):
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
-def hello_world_c_text(n):
+def hello_world_number_n(n):
     """rendered at path (/number/<n>) """
     return f"{n} is a number"
 
