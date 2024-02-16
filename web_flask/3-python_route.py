@@ -24,11 +24,10 @@ def hello_world_c_text(text):
     return f"C {text.replace('_',' ')}"
 
 
+@app.route("/python/", defaults={"text": "is cool"}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def hello_world_python_text(text):
-    """rendered at path (/c/<text>) """
-    if text is None:
-        text = "is cool"
+    """rendered at path (/python/<text>) """
     return f"Python {text.replace('_',' ')}"
 
 
