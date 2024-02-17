@@ -22,7 +22,7 @@ class State(BaseModel, Base):
         from models import storage
         from models.city import City
         cities = list(
-            map(lambda i: i[0],
+            map(lambda i: i,
                 filter(lambda i: i.state_id ==
                        self.id, storage.all(City).values())
                 )
