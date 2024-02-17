@@ -68,3 +68,8 @@ class FileStorage:
             if list(FileStorage.__objects.keys()).count(obj_key) != 0:
                 FileStorage.__objects.pop(obj_key)
                 self.save()
+
+    def close(self):
+        """call reload() method for
+        deserializing the JSON file to objects"""
+        self.reload()
