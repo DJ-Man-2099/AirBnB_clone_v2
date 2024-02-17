@@ -10,8 +10,8 @@ app = Flask(__name__)
 @app.route("/states_list", strict_slashes=False)
 def hello_world():
     """rendered at path (/) """
-    states = list(sorted(storage.all("State").values(), key=lambda x: x.name))
-    return render_template('7-states_list.html', states=states)
+    states = storage.all("State")
+    return render_template('7-states_list.html', Table="States", states=states)
 
 
 @app.teardown_appcontext
