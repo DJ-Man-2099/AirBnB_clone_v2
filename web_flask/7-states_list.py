@@ -11,7 +11,6 @@ app = Flask(__name__)
 def hello_world():
     """rendered at path (/) """
     states = list(storage.all("State").values())
-    print(states)
     return render_template('7-states_list.html', states=states)
 
 
