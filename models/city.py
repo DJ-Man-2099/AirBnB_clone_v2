@@ -11,7 +11,7 @@ class City(BaseModel, Base):
     __tablename__ = "cities"
     name = Column(String(128), nullable=False)\
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ""
-    state_id = Column(String(60), ForeignKey("states.id"), nullable=False)\
+    state_id = Column(String(60, collation="latin1_swedish_ci"), ForeignKey("states.id"), nullable=False)\
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ""
     state = relationship("State")\
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None

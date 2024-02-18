@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class to manage sql storage for hbnb clone"""
 from sqlalchemy import (asc, create_engine, MetaData)
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session, joinedload
 import os
 from models.base_model import Base, BaseModel
 from models.city import City
@@ -45,7 +45,10 @@ class DBStorage:
         if cls is not None:
             if type(cls) is not str:
                 cls = cls.__name__
-            rows = self.__session.query(self.classes[cls]).all()
+            rows = self.__session.query(
+                self.classes[cls])\
+                .all()
+            # .options(joinedload('*'))\
             result = {}
             for row in rows:
                 key = cls+"."+row.id

@@ -54,7 +54,7 @@ def hello_world_python_text(text):
 @app.route("/states_list", strict_slashes=False)
 def hello_world_states_list():
     """rendered at path (/) """
-    states = list(sorted(lambda x: x.name, storage.all("State").values()))
+    states = list(sorted(storage.all("State").values(), key=lambda x: x.name))
     return render_template('7-states_list.html', states=states)
 
 
