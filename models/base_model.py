@@ -18,7 +18,6 @@ class BaseModel:
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())\
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
-    mysql_charset = 'latin1'
 
     """A base class for all hbnb models"""
 
