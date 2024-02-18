@@ -18,7 +18,8 @@ def hello_world_states_list():
 @app.route("/states/<id>", strict_slashes=False)
 def hello_world_states_by_id(id):
     """rendered at path (/) """
-    state = storage.all("State").get("State.%s".format(id))
+    states = storage.all("State")
+    state = states.get(str.format("State.{}", id))
     return render_template('9-states.html', state=state)
 
 
