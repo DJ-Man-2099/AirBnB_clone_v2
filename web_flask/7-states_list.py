@@ -11,8 +11,7 @@ app = Flask(__name__)
 def hello_world_states_list():
     """rendered at path (/) """
     try:
-        states = sorted(list(
-            storage.all("State").values()), key=lambda x: x.name)
+        states = storage.all("State").values()
     except Exception as e:
         states = []
     return render_template('7-states_list.html', states=states)
