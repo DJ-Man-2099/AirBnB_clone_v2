@@ -58,6 +58,13 @@ def hello_world_states_list():
     return render_template('7-states_list.html', states=states)
 
 
+@app.route("/states_list", strict_slashes=False)
+def hello_world_states_list():
+    """rendered at path (/) """
+    states = storage.all("State")
+    return render_template('7-states_list.html', states=states)
+
+
 @app.teardown_appcontext
 def on_teardown_db(exception):
     """closes the storage on teardown"""
