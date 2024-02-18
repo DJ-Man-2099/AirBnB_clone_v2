@@ -19,7 +19,7 @@ place_amenity = Table("place_amenity",
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = "places"
-    city_id = Column(String(60, collation="latin1_swedish_ci"), ForeignKey("cities.id"), unique=True, nullable=False)\
+    city_id = Column(String(60), ForeignKey("cities.id"), unique=True, nullable=False)\
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
     cities = relationship("City") \
         if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
